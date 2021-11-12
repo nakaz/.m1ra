@@ -9,10 +9,13 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
 " Asynchronous completion for neovim
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Tern-based JavaScript editing support
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Emmet for vim
 " Plug 'mattn/emmet-vim'
@@ -90,7 +93,8 @@ Plug 'mhartington/oceanic-next'
 Plug 'jiangmiao/auto-pairs'
 
 " React JSX syntax highlighting & indenting
-Plug 'mxw/vim-jsx'
+" Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Asynchronous Linter
 Plug 'w0rp/ale'
@@ -103,6 +107,9 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Typescript syntax highlighting
 " Plug 'leafgarland/typescript-vim'
+
+" Language pack for all files
+Plug 'sheerun/vim-polyglot'
 
 " Svelte syntax highlighting and indentation support
 Plug 'evanleck/vim-svelte'
@@ -218,29 +225,29 @@ set diffopt+=vertical
 """"""""""""""""""""""""""""""
 " Deoplete
 """"""""""""""""""""""""""""""
-if has('nvim')
-  " Enable deoplete.
-  let g:deoplete#enable_at_startup = 1
+" if has('nvim')
+"   " Enable deoplete.
+"   let g:deoplete#enable_at_startup = 1
 
-  augroup omnifuncs
-    autocmd!
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=tern#Complete
-  augroup end
+"   augroup omnifuncs
+"     autocmd!
+"     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"     autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"     autocmd FileType javascript setlocal omnifunc=tern#Complete
+"   augroup end
 
-  let g:tern_request_timeout = 1
-  let g:tern_show_argument_hints = 'on_hold'
-  let g:tern_show_signature_in_pum = 0
+"   let g:tern_request_timeout = 1
+"   let g:tern_show_argument_hints = 'on_hold'
+"   let g:tern_show_signature_in_pum = 0
 
-  call deoplete#custom#option('num_processes', 4)
-  call deoplete#enable_logging('DEBUG', 'deoplete.log')
+"   call deoplete#custom#option('num_processes', 4)
+"   call deoplete#enable_logging('DEBUG', 'deoplete.log')
 
-  " Automatically close preview window after autocompletion
-  autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
-endif
+"   " Automatically close preview window after autocompletion
+"   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+" endif
 
 
 """"""""""""""""""""""""""""""
@@ -301,7 +308,7 @@ let g:tmuxline_separators = {
 """"""""""""""""""""""""""""""
 " vim-jsx
 """"""""""""""""""""""""""""""
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+" let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 """"""""""""""""""""""""""""""
 " ale
