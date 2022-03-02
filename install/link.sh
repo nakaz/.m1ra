@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES=$HOME/.dotfiles
+DOTFILES=$HOME/.m1ra
 
 echo -e "\nCreating symlinks"
 echo "=============================="
